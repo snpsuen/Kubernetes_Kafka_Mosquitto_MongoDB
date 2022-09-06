@@ -56,7 +56,7 @@ spec:
       volumes:
       - name: kafka-connect-data
         hostPath:
-          path: /var/tmp/kafka-connect/java
+          path: /var/lib/kafka-connect/java
           type: DirectoryOrCreate
 ---
 apiVersion: v1
