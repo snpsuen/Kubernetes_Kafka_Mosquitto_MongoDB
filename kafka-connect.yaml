@@ -50,14 +50,14 @@ spec:
           value: "/usr/share/java,/etc/kafka-connect-connect/java"
         - name: CONNECT_CONFLUENT_TOPIC_REPLICATION_FACTOR
           value: "1"      
-        volumeMounts:
-        - name: kafka-connect-data
-          mountPath: /etc/kafka-connect/java
-      volumes:
-      - name: kafka-connect-data
-        hostPath:
-          path: /etc/kafka-connect/java
-          type: DirectoryOrCreate
+        # volumeMounts:
+        # - name: kafka-connect-data
+          # mountPath: /etc/kafka-connect/java
+      # volumes:
+      # - name: kafka-connect-data
+        # hostPath:
+          # path: /etc/kafka-connect/java
+          # type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: Service
