@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-db
+  template:
+    metadata:
+      labels:
+        app: mongo-db
+    spec:
+      containers:
+      - image: mongo
+        name: mongo-db
+        ports:
+        - containerPort: 27017
+        command:
+        - mongod
+        - "--bind_ip_all"
+        volumeMounts:
+        - name: mongo-db-data
+          mountPath: /data
+      volumes:
+      - name: mongo-db-data
+        hostPath:
+           path: /var/tmp/mongo-db
+           type: DirectoryOrCreate     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db
+  labels:
+    app: mongo-db
+spec:
+  selector:
+    app: mongo-db
+  ports:
+  - name: service
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  type: LoadBalancer
+    
