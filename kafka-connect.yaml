@@ -33,13 +33,13 @@ spec:
         - name: CONNECT_STATUS_STORAGE_TOPIC
           value: docker-connect-status
         - name: CONNECT_KEY_CONVERTER
-          value: org.apache.kafka-connect.connect.json.JsonConverter
+          value: org.apache.kafka.connect.json.JsonConverter
         - name: CONNECT_VALUE_CONVERTER
-          value: org.apache.kafka-connect.connect.json.JsonConverter
+          value: org.apache.kafka.connect.json.JsonConverter
         - name: CONNECT_INTERNAL_KEY_CONVERTER
-          value: org.apache.kafka-connect.connect.json.JsonConverter
+          value: org.apache.kafka.connect.json.JsonConverter
         - name: CONNECT_INTERNAL_VALUE_CONVERTER
-          value: org.apache.kafka-connect.connect.json.JsonConverter
+          value: org.apache.kafka.connect.json.JsonConverter
         - name: CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR
           value: "1"
         - name: CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR
