@@ -12,6 +12,7 @@ spec:
       labels:
         app: mongoclient
     spec:
+      nodeName: k8sworker
       containers:
       - image: mongoclient/mongoclient
         name: mongoclient
