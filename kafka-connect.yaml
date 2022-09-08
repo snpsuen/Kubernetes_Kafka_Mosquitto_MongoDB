@@ -12,7 +12,6 @@ spec:
       labels:
         app: kafka-connect
     spec:
-      nodeName: k8sworker
       containers:
       - image: confluentinc/cp-kafka-connect
         name: kafka-connect
