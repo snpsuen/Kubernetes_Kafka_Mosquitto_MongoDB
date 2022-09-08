@@ -12,6 +12,7 @@ spec:
       labels:
         app: mongo-db
     spec:
+      nodeName: k8sworker
       containers:
       - image: mongo
         name: mongo-db
