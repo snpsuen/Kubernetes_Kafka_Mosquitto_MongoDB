@@ -47,7 +47,7 @@ spec:
         - name: CONNECT_STATUS_STORAGE_REPLICATION_FACTOR
           value: "1"
         - name: CONNECT_PLUGIN_PATH
-          value: "/usr/share/java,/etc/kafka-connect-connect/java"
+          value: "/usr/share/java,/etc/kafka-connect/java"
         - name: CONNECT_CONFLUENT_TOPIC_REPLICATION_FACTOR
           value: "1"      
         volumeMounts:
