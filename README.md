@@ -136,7 +136,7 @@ curl -d @connect-mqtt-source.json -H "Content-Type: application/json" -X POST ht
   (10) Register Mongo sink connector with Kafka connect.
   
   ~~~
-cat > connect-mongodb-sink.json <<END
+  cat > connect-mongodb-sink.json <<END
 {
 	"name": "mongo-sink",
 	"config": {
@@ -154,8 +154,24 @@ cat > connect-mongodb-sink.json <<END
 }
 END
 
-curl -d @connect-mongodb-sink.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
+  curl -d @connect-mongodb-sink.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
   ~~~
-  
-Now that we have set up all the K83 components required to stream messages from Mosquitto to Mongo DB via Kafka. we can move on to test the data pipeline by simulating the emission of IoT messages.
- 
+	
+	Now that we have set up all the K83 components required to stream messages from Mosquitto to Mongo DB via Kafka. we can move on to test the data pipeline by simulating the emission of IoT messages.
+
+<p>
+	(11) Invoke an MQTT client to simuate an app emitting an IoT message, say about a Covid postive result, to the Mosquito broker. The client is to run as a K8s pod on the fly, which will be duly removed after the message is published.
+	
+	~~~
+	kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
+	~ $ pub -h mosquitto -t "baeldung" -m "{\"TestTime\":\"202209091334\",\"MobileNo\":\"65762101\",\"TestKitSN\":\"CTK-83451496\"}"
+	~~~
+
+<p>
+	(12) Use the mongoclient to verify the message is deposited 
+	
+	
+	
+	
+
+	
