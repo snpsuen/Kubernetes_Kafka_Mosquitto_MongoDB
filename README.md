@@ -175,6 +175,16 @@ kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
   3. Click MyCollection in the left pane.
   4. Execute the find in the query pane.
   5. Verify the message shows up on the output pane:
+  
+  ~~~
+  array [1]
+     0 {4}
+	_id {4}
+	TestTime: 202209091334
+	MobileNo: 65762101
+	TestKitSN: CTK-83451496
+  ~~~
+
 
 	
 	
