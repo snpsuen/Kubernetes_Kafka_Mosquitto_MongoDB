@@ -26,7 +26,7 @@ This is a rework of a previous use case of Kafka data streaming from a Mosquitto
   unzip mongodb-kafka-connect-mongodb-1.7.0.zip
   ~~~
 
-  <p>
+<p>
 (2) Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190.
     
     ~~~
