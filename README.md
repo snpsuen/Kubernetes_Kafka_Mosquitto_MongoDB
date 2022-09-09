@@ -34,7 +34,7 @@ kubectl edit configmap -n kube-system kube-proxy
 
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml </pre>
 
-<pre>
+~~~
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -45,7 +45,7 @@ spec:
   addresses:
   - 10.0.2.170-10.0.2.190
 END
-</pre>
+~~~
 <pre>
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
