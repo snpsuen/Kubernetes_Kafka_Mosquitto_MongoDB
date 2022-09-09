@@ -14,6 +14,13 @@ uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)
 <br>
 1. Download and unzip both the Mossquitto and Mongo Kafa connectors to a designated directory on the K8s nodes, say /var/tmp/kafka-connect/java. It will be mounted by a Kafka-connect pod afterward to make the connectors available as plugins. The directory and its contents should be owned by appuser.
 <pre>
+mkdir -p /var/tmp/kafka-connect/java
+cd /var/tmp/kafka-connect/java
+wget https://d1i4a15mxbxib1.cloudfront.net/api/plugins/confluentinc/kafka-connect-mqtt/versions/1.5.1/confluentinc-kafka-connect-mqtt-1.5.1.zip
+unzip confluentinc-kafka-connect-mqtt-1.5.1.zip
+wget https://d1i4a15mxbxib1.cloudfront.net/api/plugins/mongodb/kafka-connect-mongodb/versions/1.7.0/mongodb-kafka-connect-mongodb-1.7.0.zip
+unzip mongodb-kafka-connect-mongodb-1.7.0.zip
+</pre>
 
 
 
