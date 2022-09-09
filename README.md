@@ -28,8 +28,8 @@ This is a rework of a previous use case of Kafka data streaming from a Mosquitto
 
 <p>
   (2) Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190.
-    
-    ~~~
+  
+  ~~~
     kubectl edit configmap -n kube-system kube-proxy
   apiVersion: kubeproxy.config.k8s.io/v1alpha1
   kind: KubeProxyConfiguration
@@ -63,32 +63,34 @@ END
   ~~~
                         
 <p>
-    (3) Deploy Mosquitto MQTT broker.
-    
-    ~~~
+  (3) Deploy Mosquitto MQTT broker.
+  
+  ~~~
 kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/mosquitto.yaml
-    ~~~
-    
+  ~~~
+  
 <p>
-(4) Deploy Kafka Zookeeper. We will start with one zookeeper pod in this case.
-
-~~~
+  (4) Deploy Kafka Zookeeper. We will start with one zookeeper pod in this case.
+  
+  ~~~
 kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/zookeeper.yaml
-~~~
+  ~~~
 <p>
-(5) Deploy Kafka broker. We will start with one Kafka pod in this case. There are two important points to note.
+  (5) Deploy Kafka broker. We will start with one Kafka pod in this case. There are two important points to note.
   
-1. Create a sub-directory in the path /var/tmp/kafa/data and assign its ownership to appuser (uid 1000). It will be mounted by the Kafaka broker afterward.
-2. Avoid using the name "kafka" to denote the K8s service for the Kafka pod. For example, the service is named "kafka-svc" here. Otherwise, the pod will fail to run and produce this error message "port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead."
+  1. Create a sub-directory in the path /var/tmp/kafa/data and assign its ownership to appuser (uid 1000). It will be mounted by the Kafaka broker afterward.
+  2. Avoid using the name "kafka" to denote the K8s service for the Kafka pod. For example, the service is named "kafka-svc" here. Otherwise, the pod will fail to run and produce this error message "port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead."
   
-~~~
+  ~~~
 sudo mkdir -p /var/tmp/kafka/data
 sudo chown -R 1000:1000 /var/tmp/kafka/data
 
 kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/kafka.yaml
-~~~
+  ~~~
+  
 <p> 
   (6) Deploy Kafka connect
+  
   ~~~
   kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/kafka-connect.yaml
   ~~~
