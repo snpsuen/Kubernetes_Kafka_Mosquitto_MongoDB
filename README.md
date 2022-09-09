@@ -26,14 +26,14 @@ unzip mongodb-kafka-connect-mongodb-1.7.0.zip
 2. Deploy MetalLB loadbancer, which 
 <pre>
 kubectl edit configmap -n kube-system kube-proxy
-	apiVersion: kubeproxy.config.k8s.io/v1alpha1
-	kind: KubeProxyConfiguration
-	mode: "ipvs"
-	ipvs:
-	  strictARP: true <--- set to true
+  apiVersion: kubeproxy.config.k8s.io/v1alpha1
+  kind: KubeProxyConfiguration
+  mode: "ipvs"
+  ipvs:
+    strictARP: true <--- set to true
 </pre>
 <pre> kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml </pre>
-
+<pre>
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -44,7 +44,8 @@ spec:
   addresses:
   - 10.0.2.170-10.0.2.190
 END
-
+<pre>
+<pre>
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
@@ -56,6 +57,5 @@ spec:
   - myfirstpool
 END
 </pre>
-
 
 
