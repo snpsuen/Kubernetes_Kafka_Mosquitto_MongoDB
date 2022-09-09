@@ -110,4 +110,25 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
   ~~~
   
 <p>
-  (9) 
+  (9) Register the Mosquito source connector with Kafka connect.
+  
+  ~~~
+cat > connect-mqtt-source.json <<END
+{
+    "name": "mqtt-source",
+    "config": {
+        "connector.class": "io.confluent.connect.mqtt.MqttSourceConnector",
+        "tasks.max": 1,
+        "mqtt.server.uri": "tcp://mosquitto:1883",
+        "mqtt.topics": "baeldung",
+        "kafka.topic": "connect-custom",
+        "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+        "confluent.topic.bootstrap.servers": "kafka-svc:9092",
+        "confluent.topic.replication.factor": 1
+    }
+}
+END
+
+curl -d @connect-mqtt-source.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
+  ~~~
+
