@@ -110,10 +110,10 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
   ~~~
   
 <p>
-  (9) Register the Mosquito source connector with Kafka connect.
+  (9) Register Mosquito source connector with Kafka connect.
   
   ~~~
-cat > connect-mqtt-source.json <<END
+  cat > connect-mqtt-source.json <<END
 {
     "name": "mqtt-source",
     "config": {
@@ -132,3 +132,28 @@ END
 curl -d @connect-mqtt-source.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
   ~~~
 
+<p>
+  (10) Register Mongo sink connector with Kafka connect.
+  
+  ~~~
+cat > connect-mongodb-sink.json <<END
+{
+	"name": "mongo-sink",
+	"config": {
+		"connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+		"tasks.max": "1",
+		"topics": "connect-custom",		
+		"connection.uri": "mongodb://mongo-db:27017",
+		"database": "test",
+		"collection": "MyCollection",
+		"key.converter": "org.apache.kafka.connect.json.JsonConverter",
+		"key.converter.schemas.enable": false,
+		"value.converter": "org.apache.kafka.connect.json.JsonConverter",
+		"value.converter.schemas.enable": false
+	}
+}
+END
+
+curl -d @connect-mongodb-sink.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
+  ~~~
+ 
