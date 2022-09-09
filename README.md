@@ -165,6 +165,7 @@ END
   ~~~
 kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
 ~ $ pub -h mosquitto -t "baeldung" -m "{\"TestTime\":\"202209091334\",\"MobileNo\":\"65762101\",\"TestKitSN\":\"CTK-83451496\"}"
+~ $ exit
   ~~~
 
 <p>
@@ -174,7 +175,7 @@ kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
   2. Connect to the mongo-db server at port 27010.
   3. Click MyCollection in the left pane.
   4. Execute the find in the query pane.
-  5. Observe the message is returned to display on the output pane as follows.
+  5. Observe the query returns the following message to the output pane.
   
   ~~~
   array [1]
