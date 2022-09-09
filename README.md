@@ -75,7 +75,7 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
 ~~~
 <p>
 (5) Deploy Kafka broker. We will start with one Kafka pod in this case. There are two important points to note.
-1.  Create a sub-directory in the path /var/tmp/kafa/data and assign ownership to appuser. It will be mounted by the Kafaka broker afterward.
-2.  Avoid using the name "kafka" to denote the K8s service for the Kafka pod. FOr example, the service is named "kafka-svc" here. Otherwise, the pod will fail to run and produce this error message "port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead."
+1. Create a sub-directory in the path /var/tmp/kafa/data and assign ownership to appuser. It will be mounted by the Kafaka broker afterward.
+2. Avoid using the name "kafka" to denote the K8s service for the Kafka pod. FOr example, the service is named "kafka-svc" here. Otherwise, the pod will fail to run and produce this error message "port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead."
 
 
