@@ -30,9 +30,9 @@ kubectl edit configmap -n kube-system kube-proxy
 	kind: KubeProxyConfiguration
 	mode: "ipvs"
 	ipvs:
-	  strictARP: true <--- set to true 
-
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml
+	  strictARP: true <--- set to true
+</pre>
+<pre> kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml </pre>
 
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
