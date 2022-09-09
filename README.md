@@ -1,7 +1,7 @@
 # Kubernetes_Kafka_Mosquitto_MongoDB
 This is a rework of a previous use case of Kafka data streaming from a Mosquitto MQTT broker to a Mongo database in Kubernetes. In particular, all the collaborating servers, e.g. Kafka, Zookeeper, Mongo DB and others, are deployed on K8s pods and accessible via K8s services. <br>
 <br> 
-0.  Make sure the Kubernetes cluster is set up with the nodes in the Ready state. Also make sure a specific user appuser exists on both nodes.
+0.  Make sure the Kubernetes cluster is set up with the nodes in the Ready state. Also make sure a specific user named appuser exists on both nodes.
 <pre>
 $ kubectl get nodes
 NAME        STATUS   ROLES           AGE     VERSION
@@ -23,3 +23,4 @@ wget https://d1i4a15mxbxib1.cloudfront.net/api/plugins/mongodb/kafka-connect-mon
 unzip mongodb-kafka-connect-mongodb-1.7.0.zip
 </pre>
 </br>
+2. 
