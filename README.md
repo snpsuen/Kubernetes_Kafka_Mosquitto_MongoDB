@@ -95,6 +95,21 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
   kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/kafka-connect.yaml
   ~~~
 
+<p>
+  (7) Deploy Mongo database server.
+  
+  ~~~
+  kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/mongo-db.yaml
+  ~~~
+  
+<p>
+  (8) Deploy Mongo client.
+  
+  ~~~
+  kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/mongoclient.yaml
+  ~~~
+  
+  ~~~
 
 
 
