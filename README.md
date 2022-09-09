@@ -9,4 +9,4 @@ k8smaster   Ready    control-plane   3h51m   v1.25.0
 k8sworker   Ready    <none>          143m    v1.25.0
 </pre>
 <br>
-1. Download and unzip both the Mossquitto and Mongo Kafa connectors to a designated directory on the K8s nodes, say /var/tmp/kafka-connect/java. 
+1. Download and unzip both the Mossquitto and Mongo Kafa connectors to a designated directory on the K8s nodes, say /var/tmp/kafka-connect/java. It will be mounted by a Kafka-connect pod adterwatd to use 
