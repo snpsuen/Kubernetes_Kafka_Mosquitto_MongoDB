@@ -44,7 +44,7 @@ spec:
   addresses:
   - 10.0.2.170-10.0.2.190
 END
-<pre>
+</pre>
 <pre>
 kubectl apply -f - <<END
 apiVersion: metallb.io/v1beta1
