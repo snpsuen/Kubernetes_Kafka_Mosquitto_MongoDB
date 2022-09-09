@@ -156,4 +156,6 @@ END
 
 curl -d @connect-mongodb-sink.json -H "Content-Type: application/json" -X POST http://10.110.195.38:8083/connectors
   ~~~
+  
+Now that we have set up all the K83 components required to stream messages from Mosquitto to Mongo DB via Kafka. we can move on to test the data pipeline by simulating the emission of IoT messages.
  
