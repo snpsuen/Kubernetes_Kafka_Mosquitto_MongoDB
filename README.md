@@ -171,7 +171,7 @@ kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
 <p>
   (12) Finally use the mongoclient to verify the above message is stored in the Mongo database. Suppose the mongoclient is represented by a MetalLB VIP 10.0.2.175.
 
-  1. Enter http://10.0.2.175:3000 or equivalentlly, its port-forwarding URL, eg. http://localhost:13000
+  1. Go to http://10.0.2.175:3000 or equivalentlly, its port-forwarding URL, eg. http://localhost:13000
   2. Connect to the mongo-db server at port 27010.
   3. Click MyCollection in the left pane.
   4. Execute the find in the query pane.
