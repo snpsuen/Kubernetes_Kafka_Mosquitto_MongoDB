@@ -30,7 +30,7 @@ This is a rework of a previous use case of Kafka data streaming from a Mosquitto
   (2) Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190.
   
   ~~~
-    kubectl edit configmap -n kube-system kube-proxy
+  kubectl edit configmap -n kube-system kube-proxy
   apiVersion: kubeproxy.config.k8s.io/v1alpha1
   kind: KubeProxyConfiguration
   mode: "ipvs"
