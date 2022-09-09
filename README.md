@@ -109,8 +109,5 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
   kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/mongoclient.yaml
   ~~~
   
-  ~~~
-
-
-
-
+<p>
+  (9) 
