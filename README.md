@@ -25,8 +25,10 @@ unzip confluentinc-kafka-connect-mqtt-1.5.1.zip
 wget https://github.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/raw/main/mongodb-kafka-connect-mongodb-1.7.0.zip
 unzip mongodb-kafka-connect-mongodb-1.7.0.zip
 ~~~
+  
 <p>
 2. Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190 via L2 advertisement.
+
 ~~~
 kubectl edit configmap -n kube-system kube-proxy
   apiVersion: kubeproxy.config.k8s.io/v1alpha1
@@ -59,5 +61,5 @@ spec:
   - myfirstpool
 END
 ~~~
-
+  
 
