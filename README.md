@@ -4,10 +4,10 @@ This is a rework of a previous use case of Kafka data streaming from a Mosquitto
 0.  Make sure the Kubernetes cluster is set up properly with the nodes in the Ready state. Also a specific user named appuser exists on both nodes.
   
 ~~~
-$ kubectl get nodes
-NAME        STATUS   ROLES           AGE     VERSION
-k8smaster   Ready    control-plane   3h51m   v1.25.0
-k8sworker   Ready    <none>          143m    v1.25.0
+$ kubectl get nodes -o wide
+NAME        STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+k8smaster   Ready    control-plane   25h   v1.25.0   10.0.2.220    <none>        Ubuntu 20.04.1 LTS   5.4.0-125-generic   containerd://1.5.9
+k8sworker   Ready    <none>          24h   v1.25.0   10.0.2.222    <none>        Ubuntu 20.04.1 LTS   5.4.0-125-generic   containerd://1.5.9
 
 $ id appuser
 uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)
@@ -27,7 +27,7 @@ unzip mongodb-kafka-connect-mongodb-1.7.0.zip
 ~~~
   
 <p>
-2. Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190 via L2 advertisement.
+2. Deploy MetalLB loadbancer, which will listen at VIPs assigned from the address pool 10.0.2.170-10.0.2.190.
 
 ~~~
 kubectl edit configmap -n kube-system kube-proxy
@@ -61,5 +61,17 @@ spec:
   - myfirstpool
 END
 ~~~
-  
+<p>
+3. Deploy Mosquitto MQTT broker.
 
+~~~
+kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/mosquitto.yaml
+~~~
+<p>
+4. Deploy Kafka Zookeeper. We will start with one zookeeper pod in this case.
+
+~~~
+kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/zookeeper.yaml
+~~~
+<p>
+5. Deploy Kafka broker. We will start with one Kafka pod in this case.
