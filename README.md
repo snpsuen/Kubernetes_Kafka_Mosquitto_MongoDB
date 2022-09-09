@@ -89,7 +89,7 @@ kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosq
   ~~~
   
 <p> 
-  (6) Deploy Kafka connect
+  (6) Deploy Kafka connect.
   
   ~~~
   kubectl apply -f https://raw.githubusercontent.com/snpsuen/Kubernetes_Kafka_Mosquitto_MongoDB/main/kafka-connect.yaml
