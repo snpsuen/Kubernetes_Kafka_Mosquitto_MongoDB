@@ -163,9 +163,8 @@ END
   (11) Invoke an MQTT client to simuate an app emitting an IoT message, say about a Covid postive result, to the Mosquito broker. The client is to run as a K8s pod on the fly, which will be duly removed after the message is published.
 	
   ~~~
-kubectl run mqtt-publisher --rm -it --image=efrecon/mqtt-client /bin/ash
-~ $ pub -h mosquitto -t "baeldung" -m "{\"TestTime\":\"202209091334\",\"MobileNo\":\"65762101\",\"TestKitSN\":\"CTK-83451496\"}"
-~ $ exit
+kubectl run mqtt-publisher --image=efrecon/mqtt-client --restart=Never -it --rm -- \
+pub -h mosquitto -t "baeldung" -m "{\"TestTime\":\"202209091334\",\"MobileNo\":\"65762101\",\"TestKitSN\":\"CTK-83451496\"}"
   ~~~
 
 <p>
