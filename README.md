@@ -1,5 +1,5 @@
 # Kubernetes_Kafka_Mosquitto_MongoDB
-This is a rework of a previous use case of Kafka data streaming from a Mosquitto MQTT broker to a Mongo database in Kubernetes. In particular, all the collaborating servers, e.g. Kafka, Zookeeper, Mongo DB and others, are deployed on K8s pods and accessible via K8s services.
+This is a rework of a previous use case of Kafka data streaming from a Mosquitto MQTT broker to a Mongo database in Kubernetes. In particular, all the collaborating servers, e.g. Kafka, Zookeeper, Mongo DB and others, are deployed on K8s pods and accessible via K8s services. <br>
 
 
 ![Hostic Architecture](Kubernetes_Kafka_Mosquitto_Mongo_screen01.jpg)
